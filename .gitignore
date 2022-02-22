@@ -5,8 +5,8 @@
 archives/
 archives
 
-static/images/*
-images/*
+static/images/*.png
+
 
 venv/
 # Byte-compiled / optimized / DLL files
