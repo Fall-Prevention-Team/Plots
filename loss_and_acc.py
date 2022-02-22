@@ -4,6 +4,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 import pandas as pd
+from utils import build_url_dict
+
 
 url_training = 'https://raw.githubusercontent.com/Fall-Prevention-Team/KerasFallPredicter/main/results/inception/TSC_itr_1/Meat/history.csv'
 # Below, not the real validation dataset, to be continued...
@@ -33,3 +35,25 @@ def makeGr():
     plt.savefig(fig_path)
     return fig_path
     #plt.show()
+
+
+class HarryPlotter:
+    def __init__(self):
+        url_data_dict = utils.build_url_dict()
+        fig_out_root = './static/images/'
+        already_build_imgs = []
+    
+    def get_csv_by_dict_key(self, dict_key):
+        return pd.read_csv(self.url_data_dict[dict_key])
+    
+    def is_build(self, plot_name):
+        if plot_name in self.already_build_imgs:
+            return True
+        return False
+    
+    
+
+
+
+
+

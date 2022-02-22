@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
 from matplotlib.pyplot import title
-from utils import build_url_dict
 import loss_and_acc as graph
 import plot as sisfalldata
 app = Flask(__name__)
