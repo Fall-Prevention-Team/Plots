@@ -48,3 +48,9 @@ def getURL():
     plt.subplot(3,1,2)
     plt.plot(x,y2)
 
+    plt.subplot(3,1,3)
+    plt.plot(x,y3)
+
+    path = "./static/images/moregraph.png"
+    plt.savefig(path)
+    return path
