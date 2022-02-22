@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 from matplotlib.pyplot import title
 import loss_and_acc as graph
-import plot as sisfalldata
 app = Flask(__name__)
 
 @app.route("/")
@@ -20,6 +19,7 @@ def plots():
     
 @app.route("/datafromsisfall")
 def morePlots():
+    import plot as sisfalldata
     title = "Here you go"
     png_path = sisfalldata.getURL()
     print(png_path)

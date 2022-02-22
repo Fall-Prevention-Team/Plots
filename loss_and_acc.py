@@ -4,56 +4,33 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 import pandas as pd
-from utils import build_url_dict
+from Plotwarts import HarryPlotManager
 
 
-url_training = 'https://raw.githubusercontent.com/Fall-Prevention-Team/KerasFallPredicter/main/results/inception/TSC_itr_1/Meat/history.csv'
-# Below, not the real validation dataset, to be continued...
-url_test = 'https://raw.githubusercontent.com/Fall-Prevention-Team/KerasFallPredicter/main/results/inception/TSC_itr_2/Meat/history.csv'
-DataFrame_training = pd.read_csv(url_training)
-DataFrame_test = pd.read_csv(url_test)
 
 def makeGr():
-    fig_path = "./static/images/graph.png"
+    hp = HarryPlotManager()
 
-    accuricy_training_acc = DataFrame_training.iloc[:,1]
-    accuricy_test_acc = DataFrame_test.iloc[:,1]
-    plt.subplot(1,2,1)
-    plt.plot(accuricy_training_acc)
-    plt.plot(accuricy_test_acc)
-    plt.xlim(0,75)
-    plt.ylabel('accuricy')
-    plt.xlabel('epoch')
-    accuricy_training_loss = DataFrame_training.iloc[:,0]
-    accuricy_test_loss = DataFrame_test.iloc[:,0]
-    plt.subplot(1,2,2)
-    plt.plot(accuricy_training_loss)
-    plt.plot(accuricy_test_loss)
-    plt.xlim(0,75)
+    acc_train, acc_test = hp.get_dataset_dfs('history', 'accuracy', 'val_accuracy')
+    loss_train, loss_test = hp.get_dataset_dfs('history', 'loss', 'val_loss') 
+
+    plt.subplot(2,1,1)
+    plt.plot(acc_train)
+    plt.plot(acc_test)
+    plt.xlim(0, 1500)
+    plt.ylabel('accuracy')
+    plt.xlabel('epochs')
+
+    plt.subplot(2,1,2)
+    plt.plot(loss_train)
+    plt.plot(loss_test)
+    plt.xlim(0, 1500)
     plt.ylabel('loss')
-    plt.xlabel('epoch')
-    plt.savefig(fig_path)
-    return fig_path
+    plt.xlabel('epochs')
+
+    plt.savefig(hp.get_final_img_url())
     #plt.show()
-
-
-class HarryPlotter:
-    def __init__(self):
-        url_data_dict = utils.build_url_dict()
-        fig_out_root = './static/images/'
-        already_build_imgs = []
-    
-    def get_csv_by_dict_key(self, dict_key):
-        return pd.read_csv(self.url_data_dict[dict_key])
-    
-    def is_build(self, plot_name):
-        if plot_name in self.already_build_imgs:
-            return True
-        return False
-    
-    
-
-
+    return hp.get_final_img_url()
 
 
 
