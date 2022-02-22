@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return """<h1>SUP BITCHES IT WORKS BTW</h1>"""
+    return render_template("base.html")
 
 @app.route("/plots")
 def plots():

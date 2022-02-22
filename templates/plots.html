@@ -1,16 +1,10 @@
-<!doctype html>
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% else %}
-        <title>placeholder title, bc you didnt set one..</title>
-        {% endif %}
-    </head>
-    <body>
-        <h1>{{ title }}</h1>
-        {% for line in png %}
-        <div><p>{{ line }}</p></div>
-        {% endfor %}
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>{{ title }}</h1>
+    {% for line in png %}
+    <div><p>{{ line }}</p></div>
+    {% endfor %}
+
+{% endblock %}
