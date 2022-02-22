@@ -41,13 +41,10 @@ for j in second_watch_NOTFALL:
     x.append(k)
     k+=1
 
- 
-plt.subplot(3,1,1)
-plt.plot(x, y1)
+def getURL():
+    plt.subplot(3,1,1)
+    plt.plot(x, y1)
 
-plt.subplot(3,1,2)
-plt.plot(x,y2)
+    plt.subplot(3,1,2)
+    plt.plot(x,y2)
 
-plt.subplot(3,1,3)
-plt.plot(x,y3)
-plt.show()
