@@ -1,12 +1,7 @@
 # Visualize training history
-from cgitb import html
-from msilib import sequence
 import matplotlib.pyplot as plt
-from matplotlib.transforms import Bbox
 import numpy
 import pandas as pd
-import base64
-from io import BytesIO
 
 url_training = 'https://raw.githubusercontent.com/Fall-Prevention-Team/KerasFallPredicter/main/results/inception/TSC_itr_1/Meat/history.csv'
 # Below, not the real validation dataset, to be continued...
@@ -33,6 +28,6 @@ def makeGr():
     plt.xlim(0,75)
     plt.ylabel('loss')
     plt.xlabel('epoch')
-    plt.savefig(fig_path, bbox_inches='tight')
+    plt.savefig(fig_path)
     return fig_path
     #plt.show()
