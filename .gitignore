@@ -5,10 +5,10 @@
 archives/
 archives
 
-static/images/
-images/
-*/images/
-*images/
+static/images/*
+images/*
+*/images/*
+*images/*
 
 
 venv/
