@@ -32,7 +32,7 @@ y1 = []
 y2 = []
 y3 = []
 x = []
-k = 1
+k = 0
 for j in second_watch_NOTFALL:
     
     y1.append(j[0])
