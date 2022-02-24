@@ -9,10 +9,7 @@ def hello_world():
 
 @app.route("/plots")
 def plots():
-    title = 'Plots!'
-    #search_term = request.args.get('s', type=str)
-    #popularity_relation = request.args.get('pr', type=str)
-    #n = request.args.get('n', default=20, type=int)
+    title = 'Here are examples of different plots where each plot in a graph represent an X,Y & Z coordinates'
     png_path = graph.makeGr()
     
     return render_template("plots.html", title=title, png=png_path)

@@ -1,7 +1,46 @@
 body{
-    color: aqua;
-    background-color: black;
+    background-color: #21443f;
+    margin: 0vh;
 }
 h1{
-    font-size: 1000%;
+    font-size: 100%;
+}
+header a {
+    color: black;
+    font-size: 130%;
+    text-decoration: none;
+    font: 1em sans-serif;
+    padding: auto;
+    font-size: 150%;  
+    transition-duration: .2s;
+}
+header{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    max-height: 100vh;
+    border-color: #29645b;
+    border-style: solid;
+    border-left: 2cm;
+
+}
+header img{
+    width: 300px;
+    position: relative;
+
+}
+#posts{
+    padding-top: 3vh;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header a:hover{
+    font-size: 160%;
+}
+
+.content{
+    margin-left: 40%;
+    margin-top: 5vh;
+    position: fixed;
+    text-align: center;
 }

@@ -1,10 +1,10 @@
 # Visualize training history
 from cProfile import label
+from tabnanny import check
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
-import pandas as pd
 from Plotwarts import HarryPlotManager
 
 
@@ -20,10 +20,10 @@ def makeGr():
         x.append(k)
         k+=1
 
-    ax1 = plt.subplot(2,1,1)
-    ax1.plot(x, acc_train,c='r', label="training")
-    ax1.plot(x, acc_test, label="validation")
-    ax1.legend(loc="lower right")
+    plt.subplot(2,1,1)
+    plt.plot(x, acc_train,c='r', label="training")
+    plt.plot(x, acc_test, label="validation")
+    plt.legend(loc="lower right")
     plt.xlim(-20, 75)
     plt.ylabel('accuracy')
     plt.xlabel('epochs')
@@ -35,7 +35,7 @@ def makeGr():
     plt.ylabel('loss')
     plt.xlabel('epochs')
     plt.savefig(hp.get_final_img_url())
-    #plt.show()
+    plt.clf()
     return hp.get_final_img_url()
 
 

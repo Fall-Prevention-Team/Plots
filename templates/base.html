@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet/style.css') }}">
-    <style>
-        nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/">FlaskApp</a>
-        <a href="/plots">About</a>
-        <a href="/datafromsisfall">LIFE EXITS HERE</a>
-    </nav>
-    <hr>
-    <div class="content">
-        {% block content %} {% endblock %}
-    </div>
-</body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='stylesheet/style.css') }}"
+    />
+    <link rel="stylesheet" href="../static/stylesheet/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../static/stylesheet/page_logo.PNG" />
+      <div id="posts">
+        <a href="/">Home</a>
+      </div>
+      <div id="posts"><a href="/plots">See status of data</a></div>
+      <div id="posts"><a href="/datafromsisfall">example of fall data</a></div>
+      <div id="posts"><a href="https://www.youtube.com/watch?v=wpV-gGA4PSk">never gonna give you up</a></div>
+      
+    </header>
+    <div class="content">{% block content %} {% endblock %}</div>
+  </body>
 </html>
