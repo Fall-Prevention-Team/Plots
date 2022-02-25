@@ -4,6 +4,7 @@ body{
 }
 h1{
     font-size: 100%;
+    margin: 0vh;
 }
 header a {
     color: black;
@@ -39,8 +40,9 @@ header a:hover{
 }
 
 .content{
-    margin-left: 40%;
-    margin-top: 5vh;
-    position: fixed;
+    margin: 0vh;
+    margin-left: 25%;
+    position: relative;
     text-align: center;
+    height: 100%;
 }
