@@ -14,15 +14,21 @@ def plots():
     
     return render_template("plots.html", title=title, png=png_path)
     
-@app.route("/datafromsisfall")
-def morePlots():
-    import plot as sisfalldata
+@app.route("/choosedata")
+def loadpage():
     title = "Here you go"
-    png_path = sisfalldata.getURL()
-    print(png_path)
-    return render_template("morePlot.html", title=title, png=png_path)
+    
+    return render_template("morePlot.html", title=title)
 
+@app.route("/datafromsisfall", methods=['GET','POST'])
+def loadgraph():
+    import plot as sisfalldata
+    
+    fuck_this_shit = request.form.get('person-comp')
+    list_of_png = sisfalldata.GetList(fuck_this_shit)
 
+    return render_template("image_template.html", pngs=list_of_png)
+    
 
 
 if __name__ == '__main__':

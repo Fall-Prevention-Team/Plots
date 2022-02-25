@@ -1,6 +1,15 @@
-{% extends 'base.html' %}
 
-{% block content %}
-    <h1>{{title}}</h1>
-    <img src="{{ png }}">
+{% extends 'base.html' %} {% block content %}
+<form action="/datafromsisfall" method="post">
+  <div class="menu-dropdown">
+    <select name="person-comp" id="persons">
+      choose a person {% for i in range(1, 24)%}
+      <option name="person" value="{{i}}">{{i}}</option>
+      {%endfor%}
+    </select>
+    <button value="2">press me</button>
+  </div>
+</form>
+<h1>{{title}}</h1>
+<img src="{{ png }}" />
 {% endblock %}
