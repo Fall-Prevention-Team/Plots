@@ -34,6 +34,7 @@ def makeGr():
     plt.xlim(-20, 75)
     plt.ylabel('loss')
     plt.xlabel('epochs')
+    plt.tight_layout()
     plt.savefig(hp.get_final_img_url())
     plt.clf()
     return hp.get_final_img_url()

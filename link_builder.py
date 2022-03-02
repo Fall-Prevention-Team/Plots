@@ -1,6 +1,7 @@
+from urllib.error import HTTPError
 import pandas as pd
 import numpy as np
-
+import urllib
 
 class SisFallCollector:
     root = 'https://raw.githubusercontent.com/Fall-Prevention-Team/sisfallData/main/'
@@ -51,11 +52,15 @@ class SisFallCollector:
                 iter_range = cls.rec_no_fall['iters'] +1
 
             for it in range(1, iter_range):
-                
-                url_id_iter = '_'+person_full_id+'_R0'+str(it)+'.txt'
-                final_url = cls.root + url_id_first + url_id_iter
-                res = pd.read_csv(final_url, header=None)
-                yield res, url_id_first + url_id_iter
+                try:
+                    url_id_iter = '_'+person_full_id+'_R0'+str(it)+'.txt'
+                    final_url = cls.root + url_id_first + url_id_iter
+                    res = pd.read_csv(final_url, header=None)
+                    yield res, url_id_first + url_id_iter
+                except urllib.error.HTTPError as e:
+                    print(e)
+                    continue
+                    
 
         for rec_num in range(1, cls.rec_fall['amount']+1):
             url_id_first = person_full_id+'/'+cls.rec_fall['char']

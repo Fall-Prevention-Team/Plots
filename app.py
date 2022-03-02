@@ -16,16 +16,16 @@ def plots():
     
 @app.route("/choosedata")
 def loadpage():
-    title = "Here you go"
+    title = "DATA"
     
     return render_template("morePlot.html", title=title)
+
 
 @app.route("/datafromsisfall", methods=['GET','POST'])
 def loadgraph():
     import plot as sisfalldata
-    
-    fuck_this_shit = request.form.get('person-comp')
-    list_of_png = sisfalldata.GetList(fuck_this_shit)
+    fuck_this_shit = request.form.get('person-comp').split('.')
+    list_of_png = sisfalldata.GetList(int(fuck_this_shit[0]), fuck_this_shit[1])
 
     return render_template("image_template.html", pngs=list_of_png)
     

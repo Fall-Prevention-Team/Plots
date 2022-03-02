@@ -6,6 +6,8 @@ archives/
 archives
 
 static/images/*.png
+static/images/
+static/images/*
 
 
 venv/
