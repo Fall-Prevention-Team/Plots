@@ -135,6 +135,7 @@ form{
     border-radius: 50%;
     animation: lds-default 1.2s linear infinite;
     margin-left: 70vh;
+    margin-top: 50vh;
   }
   .lds-default div:nth-child(1) {
     animation-delay: 0s;
